@@ -1,0 +1,51 @@
+<div class="ui vertical stripe segment">
+    <h1 class="ui red center aligned header">Create</h1>
+    <h2 class="ui center aligned header">Create Scheduled Emails</h2>
+    <form class="ui large form" action="/mail/send" method="POST">
+        <div class="two fields">
+            <div class="required field">
+                <label>To</label>
+                <input type="email" name="to" placeholder="email">
+            </div>
+            <div class="field">
+                <label>CC</label>
+                <input type="email" name="cc" placeholder="email">
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="required field">
+                <label>Schedule Type</label>
+                <div class="ui selection dropdown">
+                    <input type="hidden" name="scheduler" autocomplete="off">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Schedule Type</div>
+                    <div class="menu">
+                        <div class="item" data-value="recurring">Recurring</div>
+                        <div class="item" data-value="weekly">Weekly</div>
+                        <div class="item" data-value="monthly">Monthly</div>
+                        <div class="item" data-value="yearly">Yearly</div>
+                    </div>
+                </div>
+            </div>
+            <div class="required field">
+                <label>Date</label>
+                <div class="ui calendar">
+                    <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="datetime" placeholder="Pick up a date" name="date" autocomplete="off">
+                    </div>        
+                </div>
+            </div>
+        </div>
+        <div class="required field">
+            <label>Subject</label>
+            <input type="text" name="subject" maxlength="15" placeholder="Your subject" autocomplete="off">
+        </div>
+        <div class="field">
+            <label>Body</label>
+            <textarea name="body" placeholder="Type your message here..." cols="30" rows="3" autocomplete="off"></textarea>
+        </div>
+        <button class="ui primary button" type="submit">Schedule & Send</button>
+        <a class="ui secondary button" type="cancel" href="/home">Cancel</a>
+    </form>
+</div>

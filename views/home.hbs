@@ -1,0 +1,59 @@
+<div class="ui vertical stripe segment">
+  <h1 class="ui red center aligned header">Home</h1>
+  <h2 class="ui center aligned header">See your Scheduled Emails</h2>
+  
+  {{#if rmails}}
+    <table class="ui celled table">
+      <thead>
+        <tr><th>To</th>
+        <th>Subject</th>
+        <th>Body</th>
+        <th class="collapsing">Type</th>
+        <th class="collapsing">Next Date</th>
+        <th class="collapsing">Next Time</th>
+        <th class="collapsing"></th>
+        <th class="collapsing"></th>
+      </tr></thead>
+      <tbody>
+        {{#each rmails}}
+          <tr>
+            <td class="collapsing">{{truncate to 20}}</td>
+            <td data-label="Subject">{{subject}}</td>
+            <td data-label="Body">{{stripTags (truncate body 70)}}</td>
+            <td data-label="Type">{{scheduler}}</td>
+            <td data-label="Next Date">
+              {{formatDate schedulerDateTime "dddd, MMMM Do YYYY"}}
+            </td>
+            <td data-label="Next Time">
+              {{formatDate schedulerDateTime "h:mm:ss a"}}
+            </td>
+            <td>
+              <form action="/delete/{{_id}}" method="POST" id="delete-form">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="ui negative animated button" tabindex="0" href="/delete/{{_id}}" type="submit">
+                    <div class="visible content">REMOVE</div>
+                    <div class="hidden content">
+                      <i class="delete icon"></i>
+                    </div>
+                  </button>
+              </form>
+            </td>
+            <td>
+              <a class="ui positive animated button" tabindex="0" href="/edit/{{_id}}">
+                <div class="visible content">EDIT</div>
+                <div class="hidden content">
+                  <i class="tools icon"></i>
+                </div>
+              </a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+  <div class="ui large segment">
+    <p><span class="ui warning large text">No Scheduled Emails📧</span></p>
+    <p>click Create☝ to create a Scheduled email</p>
+  </div>
+  {{/if}}
+</div>

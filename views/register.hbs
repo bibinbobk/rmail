@@ -1,0 +1,70 @@
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui red image header">
+      <img src="assets/images/logo.png" class="image">
+      <div class="content">
+        Register to R-mail
+      </div>
+    </h2>
+    <form class="ui large form warning" method="POST" action="/auth/register">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="displayName" placeholder="Display Name">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="firstName" placeholder="First Name">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="lastName" placeholder="Last Name">
+            </div>
+          </div>
+        </div>
+        
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="mail icon"></i>
+            <input type="text" name="email" placeholder="E-mail address">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="E-mail Password">
+          </div>
+        </div>
+        <button class="ui fluid large red submit button" type="submit">Register</button>
+      </div>
+      <div class="ui error message">
+        <div class="header"></div>
+        <p></p>
+      </div>
+      {{#if error_text}}
+      <div class="ui warning message">
+        <div class="header">{{error_header}}</div>
+        <p>{{error_text}}</p>
+      </div>
+      {{/if}}
+      <br>
+    </form>
+
+    <div class="ui fluid vertical buttons">
+        <a class="ui blue large button" href="/auth/google">
+            <i class="google icon"></i>
+            Login with Google
+        </a>
+    </div>    
+
+    <div class="ui message">
+      <a class="ui blue basic medium button" href="/">Log-in</a>
+    </div>
+  </div>
+</div>
