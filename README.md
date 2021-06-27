@@ -1,6 +1,7 @@
 # rmail 📧
 <b>rmail</b> help creates scheduled mails.<br>
-<b>rmail</b> is a the short form of Recurring Mail.
+<b>rmail</b> is a the short form of Recurring Mail.<br>
+<i>Note: <b>rmail</b> is in production mode</i>
 
 ## To get started...
 1. You need to first clone the repo.
